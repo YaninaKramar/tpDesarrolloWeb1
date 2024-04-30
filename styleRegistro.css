@@ -3,14 +3,25 @@ body{
     background-color: #e9e4dd;
 }
 
+h1{
+    text-align: center;
+}
 .container{
-    display: inline;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+  
 }
 
-button .submit{
+
+
+
+.subir {
     background-color: #18dd18;
 }
 
-button .cancel{
+.cancel{
     background-color: #e90e0e;
 }

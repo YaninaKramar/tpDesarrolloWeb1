@@ -3,6 +3,9 @@ body{
     background-color: #e9e4dd;
 }
 
+.container{
+    display: inline;
+}
 
 button .submit{
     background-color: #18dd18;

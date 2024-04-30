@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pantalla principal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Series</li>
+                <li>Películas</li>
+                <li>Perfil</li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+    <main>
+        <section class="container">
+            <form class="categoria" method="post">
+                <label for="categorias">Categorías:</label>
+                <select id="categorias" >
+                    <option value="valor1">Comedia</option>
+                    <option value="valor2">Comedia romantica</option>
+                    <option value="valor3">Terror</option>
+                    <option value="valor4">Thriller</option>
+                    <option value="valor5">Ciencia ficción</option>
+                    <option value="valor6">Acción</option>
+                    <option value="valor7">Fantasía</option>
+                    <option value="valor8">Romance</option>
+                    <option value="valor9">Telenovela</option>
+                    <option value="valor10">Sci-fi</option>
+                    <option value="valor11">Documental</option>
+                    <option value="valor12">Anime</option>
+                </select>
+            </form>
+            <form class="search" method="get">
+                <input type="search" id="site-search" placeholder="Buscar">
+                <button class="search" type="submit"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                  
+                  </button>
+            </form>
+        </section>
+    
+        <section>
+        <!--aca van las peliculas-->
+        </section>
+    </main>
+    
+    
+    <footer>
+        
+    </footer>
+</body>
+</html>
+
+
+

@@ -1,69 +1,120 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Registrarse</title>
-<link rel="stylesheet" href="styleRegistro.css">
-</head>
-<body>
-<h1>Registrarse</h1>
-<section class="container">
-	<form class="registroUsuario" method="post">
-		<fieldset>
-			<legend>Datos personales</legend>
-			<label for="nombre" >Nombre:</label>
-			<input id="nombre" placeholder="Nombre" maxlength="20" type="text" required><br>
-			<label for="apellido">Apellido:</label>
-			<input id="apellido" placeholder="Apellido" maxlength="20" type="text" required><br>
-			<label for="genero">Genero:</label>
-			<select id="genero" required>
-				<option value="valor1">Hombre</option>
-				<option value="valor2">Mujer</option>
-				<option value="valor3">Prefiero no decirlo</option>
-			</select><br>
-			<label for="email">E-mail:</label>
-			<input id="email" placeholder="Ingresar e-mail" type="email" required><br>
-			<label for="nombreUsuario">Nombre de usuario:</label>
-			<input id="nombreUsuario" placeholder="Nombre de usuario" type="text" required><br>
-			<label for="contraseña">Contraseña:</label>
-			<input id="contraseña" placeholder="Contraseña" type="password" required><br>
-			<label for="repetircontraseña">Repetir contraseña:</label>
-			<input id="repetircontraseña" placeholder="Repetir contraseña" type="password" required><br>
-			<input id="basesYCondiciones" type="checkbox" >
-			<label for="basesYCondiciones" ><small>Declaro que eh leído y acepto los términos y condiciones.</small></label>
-		</fieldset>
-	</form>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styleRegistro.css" />
+    <title>Register</title>
+  </head>
+  <body>
+    <h1>
+      Registrarse
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 23 23"
+        stroke-width="1.6"
+        stroke="currentColor"
+        class="RegisterSvg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+        />
+      </svg>
+    </h1>
 
-	<form class="metodoDePago" method="post">
-		<fieldset>
-			<legend>Método de pago</legend>
-			
-			<input type="radio" id="opcion1" value="opcion1" name="opcion">
-			<label for="opcion1">Tarjeta de crédito</label><br>
-			<input type="number" id="numeroTarjeta" placeholder="Número de su tarjeta">
-			<input type="number" id="codigoDeSeguridad" placeholder="XXX"><br>
-			
-			<input type="radio" id="opcion2" value="opcion2" name="opcion">
-			<label for="opcion2">Pago Fácil</label><br>
-			
-			<input type="radio" id="opcion3" value="opcion3" name="opcion">
-			<label for="opcion3">Rapipago</label><br>
-			
-			<input type="radio" id="opcion4" value="opcion4" name="opcion">
-			<label for="opcion4">Transferencia bancaria</label><br>
-            <label for="cbu"><sub>CBU:1203905402145878965252</sub></label><br> 
-            <input type="radio" id="opcion5" value="opcion4" name="opcion">
-			<label for="opcion5">Mercado pago</label><br>
+    <main>
+      <form action="" class="container">
+        <section class="register">
+          <div>
+            <label for="">Nombre</label>
+            <input type="text" />
+          </div>
+          <div>
+            <label for="">Apellido</label>
+            <input type="text" />
+          </div>
+          <div>
+            <label for="">E-mail</label>
+            <input type="email" />
+          </div>
+          <div>
+            <label for="">Nombre de usuario</label>
+            <input type="text" />
+          </div>
+          <div>
+            <label for="">Contraseña</label>
+            <input type="password" />
+          </div>
+          <div>
+            <label for="">Repetir Contraseña</label>
+            <input type="password" />
+          </div>
+        </section>
+        <section class="payMethod">
+          <div class="cont-labelTitle">
+            <label class="labelTitle" for="">Metodos de pago</label>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="svgPay"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"
+              />
+            </svg>
+          </div>
 
-            
-		</fieldset>
-        <br>
-        
-	</form>
-</section>
-<section>
-        <button class="subir" type="submit" class="btn btn-confirmar">Confirmar</button>   <!-- falta hacer que vaya al login-->
-        <button class="cancel" type="button" class="btn btn-cancelar">Cancelar</button>     <!-- falta hacer que vaya al login-->
-</section>
-</body>
+          <ul>
+            <li>
+              <input class="roundCheck" type="radio" name="payMethod1"/>
+              <label for="">Tarjeta de credito</label>
+              <ul>
+                <li>
+                  <input
+                    class="input1"
+                    type="text"
+                    placeholder="Numero de tarjeta"
+                  />
+                  <input class="input2" type="text" placeholder="XXX" />
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="roundCheck" type="radio" name="payMethod1"/>
+              <label for="">Cupon de pago</label>
+              <ul>
+                <li>
+                  <input type="radio" name="payMethod2"/>
+                  <label for="">Pago facil</label>
+                  <input type="radio" name="payMethod2"/>
+                  <label for="">RapiPago</label>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="roundCheck" type="radio" name="payMethod1"/>
+              <label for="">Transferencia bancaria</label>
+              <ul>
+                <li>
+                  <p>CBU: 9123801938091231231</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="container-btn">
+            <button class="btn-confirm">Confirmar</button>
+            <button class="btn-cancel">Cancelar</button>
+          </div>
+        </section>
+      </form>
+    </main>
+  </body>
 </html>

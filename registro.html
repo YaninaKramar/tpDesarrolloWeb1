@@ -30,27 +30,27 @@
         <section class="register">
           <div>
             <label for="">Nombre</label>
-            <input type="text" />
+            <input type="text" required/>
           </div>
           <div>
             <label for="">Apellido</label>
-            <input type="text" />
+            <input type="text" required/>
           </div>
           <div>
             <label for="">E-mail</label>
-            <input type="email" />
+            <input type="email" required/>
           </div>
           <div>
             <label for="">Nombre de usuario</label>
-            <input type="text" />
+            <input type="text" required/>
           </div>
           <div>
             <label for="">Contraseña</label>
-            <input type="password" />
+            <input type="password" required/>
           </div>
           <div>
             <label for="">Repetir Contraseña</label>
-            <input type="password" />
+            <input type="password"required />
           </div>
         </section>
         <section class="payMethod">
@@ -89,16 +89,12 @@
             </li>
             <li>
               <input class="roundCheck" type="radio" name="payMethod1"/>
-              <label for="">Cupon de pago</label>
-              <ul>
-                <li>
-                  <input type="radio" name="payMethod2"/>
-                  <label for="">Pago facil</label>
-                  <input type="radio" name="payMethod2"/>
-                  <label for="">RapiPago</label>
-                </li>
-              </ul>
+              <label for="">Pago Fácil</label>
             </li>
+            <li>
+                <input class="roundCheck" type="radio" name="payMethod1"/>
+                <label for="">Rapipago</label>
+              </li>
             <li>
               <input class="roundCheck" type="radio" name="payMethod1"/>
               <label for="">Transferencia bancaria</label>

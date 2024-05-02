@@ -39,3 +39,11 @@ nav ul li:hover{
     background-color: none;
     color: #000000;
 }
+.films{
+    display: inline-block;
+    
+}
+img{
+    width: 12rem;
+    height: 7rem;
+}

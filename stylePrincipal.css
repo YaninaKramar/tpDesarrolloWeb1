@@ -1,5 +1,5 @@
 body{
-    background-color: #35312f;
+    background-color: #554f4d;
     margin: 0;
     border: 0;
     padding: 0;
@@ -27,6 +27,11 @@ nav ul li{
 nav ul li:hover{
     background-color: #756e6e;
 }
+
+.svgNav{
+    width: 1rem;
+}
+
 .container{
     color: #ffffff;
     display: flex;
@@ -47,4 +52,6 @@ nav ul li:hover{
 img{
     width: 12rem;
     height: 7rem;
+    padding-bottom: 1rem;
+    
 }

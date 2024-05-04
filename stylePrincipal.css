@@ -20,7 +20,6 @@ nav ul {
 
 nav ul li{
     border: #5c5656 solid;
-    border-radius: 2px;
     border-right: none;
     flex-grow: 1;
    
@@ -31,7 +30,7 @@ nav ul li:hover{
 .container{
     color: #ffffff;
     display: flex;
-    padding-top: 20px;
+    padding-top: 1rem;
     justify-content:space-around;
 }
 
@@ -40,8 +39,10 @@ nav ul li:hover{
     color: #000000;
 }
 .films{
-    display: inline-block;
-    
+    display: grid;
+    grid-template-columns:repeat(6, 1fr);
+    justify-items: center;
+    padding-top: 2rem;
 }
 img{
     width: 12rem;

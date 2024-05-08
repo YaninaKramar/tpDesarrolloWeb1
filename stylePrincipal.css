@@ -47,11 +47,18 @@ nav ul li:hover{
     display: grid;
     grid-template-columns:repeat(6, 1fr);
     justify-items: center;
+    grid-gap: 1.5rem;
     padding-top: 2rem;
 }
 img{
     width: 12rem;
     height: 7rem;
-    padding-bottom: 1rem;
-    
+}
+
+footer{
+    background-color: #000000;
+}
+.copy{
+    color: #ffffff;
+    text-align: center;
 }

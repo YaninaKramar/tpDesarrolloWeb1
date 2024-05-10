@@ -144,7 +144,7 @@ h1 {
   }
 }
 
-@media screen and (max-width: 900px) and (min-width: 641) {
+@media screen and (max-width: 990px) and (min-width: 640px) {
   h1 {
     text-align: center;
     margin-left: 0;
@@ -173,7 +173,4 @@ h1 {
   .container-btn {
     justify-content: space-around;
   }
-}
-
-@media screen and (max-width: 1024) and (min-width: 901) {
 }

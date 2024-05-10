@@ -119,31 +119,32 @@ h1 {
 }
 
 @media screen and (max-width: 640px) {
+  h1 {
+    text-align: initial;
+  }
   .container {
     display: grid;
     grid-template-columns: 1fr;
   }
-  .register,
+  .register {
+    width: 100%;
+    div {
+      justify-content: space-between;
+    }
+  }
   .payMethod {
     width: 100%;
   }
   .cont-labelTitle {
     justify-content: center;
+  }
+  .container-btn {
+    justify-content: space-around;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .container {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
+@media screen and (max-width: 900px) and (min-width: 641) {
+}
 
-  .register,
-  .payMethod {
-    width: 100%;
-  }
-  .cont-labelTitle {
-    justify-content: center;
-  }
+@media screen and (max-width: 1024) and (min-width: 901) {
 }

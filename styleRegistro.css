@@ -120,7 +120,8 @@ h1 {
 
 @media screen and (max-width: 640px) {
   h1 {
-    text-align: initial;
+    text-align: center;
+    margin-left: 0;
   }
   .container {
     display: grid;
@@ -143,7 +144,35 @@ h1 {
   }
 }
 
-@media screen and (max-width: 900px) and (min-width: 641) {
+@media screen and (max-width: 900px) {
+  h1 {
+    text-align: center;
+    margin-left: 0;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .register {
+    width: 100%;
+    div {
+      justify-content: end;
+      padding-right: 25%;
+    }
+  }
+  .payMethod {
+    width: 100%;
+  }
+  .cont-labelTitle {
+    justify-content: center;
+    text-align: left;
+  }
+  .payMethods {
+    justify-content: center;
+  }
+  .container-btn {
+    justify-content: space-around;
+  }
 }
 
 @media screen and (max-width: 1024) and (min-width: 901) {

@@ -144,7 +144,7 @@ h1 {
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 900px) and (min-width: 641) {
   h1 {
     text-align: center;
     margin-left: 0;

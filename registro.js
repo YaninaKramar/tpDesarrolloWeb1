@@ -11,8 +11,9 @@ document
     const confirmPassword = document.getElementById("confirmPassword").value;
     const cardCVC = document.getElementById("cardCVC").value;
 
+    // Patrón para la contraseña: mínimo 2 letras, 2 números, 2 caracteres especiales y al menos 8 caracteres de longitud
     const passwordPattern =
-      /^(?=.[A-Za-z].[A-Za-z])(?=.\d.\d)(?=.[^A-Za-z0-9].[^A-Za-z0-9]).{8,}$/;
+      /^(?=(?:.[A-Za-z]){2})(?=(?:.\d){2})(?=(?:.*[^A-Za-z0-9]){2}).{8,}$/;
 
     if (!firstName.match(/^[A-Za-z]+$/)) {
       alert("El nombre solo puede contener letras");
@@ -83,6 +84,7 @@ document
       cardCVC: selectedPaymentMethod.value === "creditCard" ? cardCVC : null,
     };
 
+    console.log("Formulario guardado en Session Storage:", formData);
     sessionStorage.setItem("formData", JSON.stringify(formData));
     alert("Formulario enviado con éxito y guardado en Session Storage");
   });

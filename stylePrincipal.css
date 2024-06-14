@@ -123,7 +123,14 @@ footer {
 span {
   font-weight: bold;
 }
-
+.copy {
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  font-size: small;
+  background-color: #000000;
+  color: #cecece;
+}
 @media screen and (max-width: 640px) {
   .svgNav {
     display: none;

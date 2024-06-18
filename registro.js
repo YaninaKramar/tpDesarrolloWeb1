@@ -17,43 +17,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Patrón para la contraseña: mínimo 2 letras, 2 números, 2 caracteres especiales y al menos 8 caracteres de longitud
   const passwordPattern =
-    /^(?=(?:.[A-Za-z]){2})(?=(?:.\d){2})(?=(?:.*[^A-Za-z0-9]){2}).{8,}$/;
-
-  function showError(input, message) {
-    const parentDiv = input.parentElement;
-    let errorDiv = parentDiv.querySelector(".error-message");
-    if (!errorDiv) {
-      errorDiv = document.createElement("div");
-      errorDiv.className = "error-message";
-      parentDiv.appendChild(errorDiv);
-    }
-    errorDiv.textContent = message;
-  }
-
-  function clearError(input) {
-    const parentDiv = input.parentElement;
-    const errorDiv = parentDiv.querySelector(".error-message");
-    if (errorDiv) {
-      parentDiv.removeChild(errorDiv);
-    }
-  }
+    /^(?=.[A-Za-z]{2})(?=.\d{2})(?=.*[^A-Za-z0-9]{2}).{8,}$/;
 
   function validatePassword() {
     const pwd = password.value;
     if (!passwordPattern.test(pwd)) {
-      showError(
-        password,
+      alert(
         "La contraseña debe tener al menos 8 caracteres, incluyendo al menos dos letras, dos números y dos caracteres especiales"
       );
       return false;
-    } else {
-      clearError(password);
     }
     if (pwd !== confirmPassword.value) {
-      showError(confirmPassword, "Las contraseñas no coinciden");
+      alert("Las contraseñas no coinciden");
       return false;
-    } else {
-      clearError(confirmPassword);
     }
     return true;
   }
@@ -61,13 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function validateCardNumber() {
     const cardNum = cardNumber.value;
     if (!/^\d{16,19}$/.test(cardNum)) {
-      showError(
-        cardNumber,
-        "Número de tarjeta inválido. Debe tener entre 16 y 19 dígitos."
-      );
+      alert("Número de tarjeta inválido. Debe tener entre 16 y 19 dígitos.");
       return false;
-    } else {
-      clearError(cardNumber);
     }
     const sum = cardNum
       .slice(0, -1)
@@ -80,23 +51,18 @@ document.addEventListener("DOMContentLoaded", () => {
         (sum % 2 === 1 && lastDigit % 2 === 0)
       )
     ) {
-      showError(
-        cardNumber,
+      alert(
         "El último dígito de la tarjeta no cumple con las reglas de paridad."
       );
       return false;
-    } else {
-      clearError(cardNumber);
     }
     return true;
   }
 
   function validateCVC() {
     if (cardCVC.value === "000") {
-      showError(cardCVC, 'El CVC no puede ser "000".');
+      alert('El CVC no puede ser "000".');
       return false;
-    } else {
-      clearError(cardCVC);
     }
     return true;
   }
@@ -106,26 +72,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!firstName.value.match(/^[A-Za-z]+$/)) {
       allValid = false;
-      showError(firstName, "El nombre solo puede contener letras.");
-    } else {
-      clearError(firstName);
+      alert("El nombre solo puede contener letras.");
     }
 
     if (!lastName.value.match(/^[A-Za-z]+$/)) {
       allValid = false;
-      showError(lastName, "El apellido solo puede contener letras.");
-    } else {
-      clearError(lastName);
+      alert("El apellido solo puede contener letras.");
     }
 
     if (!username.value.match(/^[A-Za-z0-9]+$/)) {
       allValid = false;
-      showError(
-        username,
-        "El nombre de usuario solo puede contener letras y números."
-      );
-    } else {
-      clearError(username);
+      alert("El nombre de usuario solo puede contener letras y números.");
     }
 
     if (!validatePassword()) {

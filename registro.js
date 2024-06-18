@@ -1,90 +1,96 @@
-document
-  .getElementById("registrationForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("registrationForm");
+  const password = document.getElementById("password");
+  const confirmPassword = document.getElementById("confirmPassword");
+  const cardNumber = document.getElementById("cardNumber");
+  const cardCVC = document.getElementById("cardCVC");
+  const confirmBtn = document.querySelector('.btn[type="submit"]');
 
-    const firstName = document.getElementById("firstName").value;
-    const lastName = document.getElementById("lastName").value;
-    const email = document.getElementById("email").value;
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
-    const cardCVC = document.getElementById("cardCVC").value;
+  // Deshabilitar el botón de confirmar al inicio
+  confirmBtn.disabled = true;
 
-    // Patrón para la contraseña: mínimo 2 letras, 2 números, 2 caracteres especiales y al menos 8 caracteres de longitud
-    const passwordPattern =
-      /^(?=(?:.[A-Za-z]){2})(?=(?:.\d){2})(?=(?:.*[^A-Za-z0-9]){2}).{8,}$/;
+  // Validaciones de contraseña
+  function validatePassword() {
+    const pwd = password.value;
+    const regex =
+      /^(?=.[A-Za-z]{2,})(?=.\d{2,})(?=.[!@#$%^&()_+}{":;'?/>.<,]{2,}).{8,}$/;
+    return regex.test(pwd) && pwd === confirmPassword.value;
+  }
 
-    if (!firstName.match(/^[A-Za-z]+$/)) {
-      alert("El nombre solo puede contener letras");
-      document.getElementById("firstName").focus();
-      return;
+  // Validación de número de tarjeta de crédito
+  function validateCardNumber() {
+    const cardNum = cardNumber.value;
+    if (!/^\d{16,19}$/.test(cardNum)) {
+      return false;
     }
-
-    if (!lastName.match(/^[A-Za-z]+$/)) {
-      alert("El apellido solo puede contener letras");
-      document.getElementById("lastName").focus();
-      return;
-    }
-
-    if (!username.match(/^[A-Za-z0-9]+$/)) {
-      alert("El nombre de usuario solo puede contener letras y números");
-      document.getElementById("username").focus();
-      return;
-    }
-
-    if (!password.match(passwordPattern)) {
-      alert(
-        "La contraseña debe tener al menos 8 caracteres, incluyendo al menos dos letras, dos números y dos caracteres especiales"
-      );
-      document.getElementById("password").focus();
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      alert("Las contraseñas no coinciden");
-      document.getElementById("confirmPassword").focus();
-      return;
-    }
-
-    const selectedPaymentMethod = document.querySelector(
-      'input[name="payMethod"]:checked'
+    const sum = cardNum
+      .slice(0, -1)
+      .split("")
+      .reduce((acc, num) => acc + parseInt(num), 0);
+    const lastDigit = parseInt(cardNum.slice(-1));
+    return (
+      (sum % 2 === 0 && lastDigit % 2 === 1) ||
+      (sum % 2 === 1 && lastDigit % 2 === 0)
     );
-    if (!selectedPaymentMethod) {
-      alert("Por favor, seleccione un método de pago");
-      return;
+  }
+
+  // Validación de CVC
+  function validateCVC() {
+    return cardCVC.value !== "000";
+  }
+
+  // Validar todos los campos
+  function validateForm() {
+    const inputs = form.querySelectorAll("input[required]");
+    let allValid = true;
+
+    inputs.forEach((input) => {
+      if (!input.checkValidity()) {
+        allValid = false;
+      }
+    });
+
+    if (!validatePassword()) {
+      allValid = false;
+      confirmPassword.setCustomValidity(
+        "Las contraseñas no coinciden o no cumplen con los requisitos."
+      );
+    } else {
+      confirmPassword.setCustomValidity("");
     }
 
-    if (selectedPaymentMethod.value === "creditCard") {
-      const cardNumber = document.getElementById("cardNumber").value;
-
-      if (!cardNumber || cardNumber.length < 16) {
-        alert("Por favor, complete el número de tarjeta de crédito");
-        return;
-      }
-
-      if (cardCVC === "000") {
-        alert('El código CVC no puede ser "000"');
-        document.getElementById("cardCVC").focus();
-        return;
-      }
+    if (cardNumber.value && !validateCardNumber()) {
+      allValid = false;
+      cardNumber.setCustomValidity("Número de tarjeta inválido.");
+    } else {
+      cardNumber.setCustomValidity("");
     }
 
-    const formData = {
-      firstName,
-      lastName,
-      email,
-      username,
-      password,
-      paymentMethod: selectedPaymentMethod.value,
-      cardNumber:
-        selectedPaymentMethod.value === "creditCard"
-          ? document.getElementById("cardNumber").value
-          : null,
-      cardCVC: selectedPaymentMethod.value === "creditCard" ? cardCVC : null,
-    };
+    if (cardCVC.value && !validateCVC()) {
+      allValid = false;
+      cardCVC.setCustomValidity("CVC no puede ser 000.");
+    } else {
+      cardCVC.setCustomValidity("");
+    }
 
-    console.log("Formulario guardado en Session Storage:", formData);
-    sessionStorage.setItem("formData", JSON.stringify(formData));
-    alert("Formulario enviado con éxito y guardado en Session Storage");
+    confirmBtn.disabled = !allValid;
+  }
+
+  // Evento para validar el formulario
+  form.addEventListener("input", validateForm);
+
+  // Evento de envío del formulario
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (validateForm()) {
+      window.location.href = "login.html";
+    }
   });
+
+  // Evento para cancelar
+  document
+    .querySelector('.btn[type="button"]')
+    .addEventListener("click", () => {
+      window.location.href = "login.html";
+    });
+});

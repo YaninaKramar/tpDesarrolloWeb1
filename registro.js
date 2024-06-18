@@ -1,23 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("registrationForm");
+  const firstName = document.getElementById("firstName");
+  const lastName = document.getElementById("lastName");
+  const email = document.getElementById("email");
+  const username = document.getElementById("username");
   const password = document.getElementById("password");
   const confirmPassword = document.getElementById("confirmPassword");
   const cardNumber = document.getElementById("cardNumber");
   const cardCVC = document.getElementById("cardCVC");
   const confirmBtn = document.querySelector('.btn[type="submit"]');
+  const cancelBtn = document.querySelector('.btn[type="button"]');
+  const payMethods = document.querySelectorAll('input[name="payMethod"]');
 
   // Deshabilitar el botón de confirmar al inicio
   confirmBtn.disabled = true;
 
-  // Validaciones de contraseña
+  // Patrón para la contraseña: mínimo 2 letras, 2 números, 2 caracteres especiales y al menos 8 caracteres de longitud
+  const passwordPattern =
+    /^(?=(?:.[A-Za-z]){2})(?=(?:.\d){2})(?=(?:.*[^A-Za-z0-9]){2}).{8,}$/;
+
   function validatePassword() {
     const pwd = password.value;
-    const regex =
-      /^(?=.[A-Za-z]{2,})(?=.\d{2,})(?=.[!@#$%^&()_+}{":;'?/>.<,]{2,}).{8,}$/;
-    return regex.test(pwd) && pwd === confirmPassword.value;
+    return passwordPattern.test(pwd) && pwd === confirmPassword.value;
   }
 
-  // Validación de número de tarjeta de crédito
   function validateCardNumber() {
     const cardNum = cardNumber.value;
     if (!/^\d{16,19}$/.test(cardNum)) {
@@ -34,21 +40,35 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  // Validación de CVC
   function validateCVC() {
     return cardCVC.value !== "000";
   }
 
-  // Validar todos los campos
   function validateForm() {
-    const inputs = form.querySelectorAll("input[required]");
     let allValid = true;
 
-    inputs.forEach((input) => {
-      if (!input.checkValidity()) {
-        allValid = false;
-      }
-    });
+    if (!firstName.value.match(/^[A-Za-z]+$/)) {
+      allValid = false;
+      firstName.setCustomValidity("El nombre solo puede contener letras.");
+    } else {
+      firstName.setCustomValidity("");
+    }
+
+    if (!lastName.value.match(/^[A-Za-z]+$/)) {
+      allValid = false;
+      lastName.setCustomValidity("El apellido solo puede contener letras.");
+    } else {
+      lastName.setCustomValidity("");
+    }
+
+    if (!username.value.match(/^[A-Za-z0-9]+$/)) {
+      allValid = false;
+      username.setCustomValidity(
+        "El nombre de usuario solo puede contener letras y números."
+      );
+    } else {
+      username.setCustomValidity("");
+    }
 
     if (!validatePassword()) {
       allValid = false;
@@ -59,38 +79,55 @@ document.addEventListener("DOMContentLoaded", () => {
       confirmPassword.setCustomValidity("");
     }
 
-    if (cardNumber.value && !validateCardNumber()) {
+    const selectedPaymentMethod = document.querySelector(
+      'input[name="payMethod"]:checked'
+    );
+    if (!selectedPaymentMethod) {
       allValid = false;
-      cardNumber.setCustomValidity("Número de tarjeta inválido.");
-    } else {
-      cardNumber.setCustomValidity("");
-    }
+    } else if (selectedPaymentMethod.value === "creditCard") {
+      if (!validateCardNumber()) {
+        allValid = false;
+        cardNumber.setCustomValidity("Número de tarjeta inválido.");
+      } else {
+        cardNumber.setCustomValidity("");
+      }
 
-    if (cardCVC.value && !validateCVC()) {
-      allValid = false;
-      cardCVC.setCustomValidity("CVC no puede ser 000.");
-    } else {
-      cardCVC.setCustomValidity("");
+      if (!validateCVC()) {
+        allValid = false;
+        cardCVC.setCustomValidity("CVC no puede ser 000.");
+      } else {
+        cardCVC.setCustomValidity("");
+      }
     }
 
     confirmBtn.disabled = !allValid;
   }
 
-  // Evento para validar el formulario
   form.addEventListener("input", validateForm);
 
-  // Evento de envío del formulario
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     if (validateForm()) {
+      const formData = {
+        firstName: firstName.value,
+        lastName: lastName.value,
+        email: email.value,
+        username: username.value,
+        password: password.value,
+        paymentMethod: document.querySelector('input[name="payMethod"]:checked')
+          .value,
+        cardNumber: cardNumber.value || null,
+        cardCVC: cardCVC.value || null,
+      };
+      sessionStorage.setItem("formData", JSON.stringify(formData));
+      alert("Formulario enviado con éxito y guardado en Session Storage");
       window.location.href = "login.html";
     }
   });
 
-  // Evento para cancelar
-  document
-    .querySelector('.btn[type="button"]')
-    .addEventListener("click", () => {
-      window.location.href = "login.html";
-    });
+  cancelBtn.addEventListener("click", () => {
+    window.location.href = "login.html";
+  });
+
+  validateForm(); // Para validar en el inicio si hay algún dato precargado
 });

@@ -123,7 +123,50 @@ img {
   width: 12em;
   height: 7em;
 }
+/* dropdown.css */
 
+/* Estilos básicos */
+ul {
+  list-style-type: none;
+}
+
+.lista-nav {
+  position: relative;
+  display: inline-block;
+}
+
+.interno {
+  cursor: pointer;
+}
+
+/* Estilos para el dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content li {
+  padding: 12px 16px;
+}
+
+.dropdown-content li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.dropdown-content li a:hover {
+  background-color: #ddd;
+}
+
+/* Mostrar el dropdown cuando esté activo */
+.dropdown-content.show {
+  display: block;
+}
 footer {
   background-color: #000000;
   color: #cecece;

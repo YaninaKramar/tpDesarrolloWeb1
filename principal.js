@@ -107,3 +107,24 @@ function logout() {
   localStorage.clear();
   window.location.href = "index.html";
 }
+
+// dropdown.js
+
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdownToggle = document.querySelector(".dropdown-toggle");
+  const dropdownContent = document.querySelector(".dropdown-content");
+
+  dropdownToggle.addEventListener("click", function (event) {
+    event.stopPropagation();
+    dropdownContent.classList.toggle("show");
+  });
+
+  document.addEventListener("click", function (event) {
+    if (
+      !dropdownContent.contains(event.target) &&
+      !dropdownToggle.contains(event.target)
+    ) {
+      dropdownContent.classList.remove("show");
+    }
+  });
+});

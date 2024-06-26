@@ -1,27 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <link rel="stylesheet" href="modelo1.css" />
     <title>Parcial modelo 1</title>
-</head>
-<body>
-    <header>Segundo Parcial</header>
-    <main>
-        <section id="primeraSeccion">
-            <p id="universidad"></p>
-        </section>
-        <section id="segundaSeccion">
-            <form>
-                <label>Ingresa una universidad</label>
-                <input>
+  </head>
+  <body>
+    <header>
+      <h1 id="titulo">Segundo Parcial</h1>
+    </header>
+    <section id="container">
+      <article id="universidad">
+        <p id="uni">Universidad</p>
+      </article>
 
+      <article class="elegir" id="elegir">
+        <form action="" method="post">
+          <label>Ingresa una universidad</label>
+          <select name="universidad-nombre" class="selector">
+            <option value="seleccionar">Seleccionar..</option>
+            <option value="unlam">UNLAM</option>
+            <option value="uai">UAI</option>
+            <option value="unsam">UNSAM</option>
+          </select>
+          <label>Cambia el color del fondo </label>
+          <select name="color-nombre" class="selector">
+            <option value="seleccionar">Seleccionar..</option>
+            <option value="rojo">Rojo</option>
+            <option value="azul">Azul</option>
+            <option value="verde">Verde</option>
+          </select>
+          <label>Cambia el color del texto</label>
 
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>Kramar Yanina Ailen - 41883305</p>
+          <input type="radio" name="color" value="blanco">Blanco
+          <input type="radio" name="color" value="gris">Gris
+          <input type="radio" name="color" value="amarillo">Amarillo
+        </form>
+      </article>
+    </section>
+    <footer id="footer">
+      <p>Kramar Yanina Ailen - 41883305</p>
     </footer>
-</body>
+  </body>
+  <script src="modelo1.js"></script>
 </html>

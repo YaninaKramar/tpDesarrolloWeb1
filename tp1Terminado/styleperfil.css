@@ -1,0 +1,282 @@
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+html {
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #ffffff, #105f77fd);
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+.nav {
+  margin-top: 2em;
+}
+main {
+  padding: 2rem 0 2rem 0;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+img {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  width: 6.25em;
+}
+.svgNav {
+  width: 1rem;
+}
+.nombre-de-usuario {
+  display: inline;
+  justify-content: center;
+  margin: auto;
+}
+
+.header {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid #000000;
+}
+
+.ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.cbu {
+  list-style-type: none;
+  margin-top: 1rem;
+}
+img {
+  border-radius: 100%;
+}
+h4 {
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.lista-nav:hover {
+  font-weight: bold;
+}
+
+.Formulario {
+  gap: 15em;
+  display: flex;
+  flex-direction: row;
+}
+
+.section-form {
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+  align-items: end;
+}
+
+.section-form2 {
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+  margin-left: 4px;
+}
+
+.h4-textos {
+  display: inline;
+}
+
+.email {
+  display: inline;
+}
+
+.contraseña {
+  display: inline;
+}
+
+.nueva-contraseña {
+  display: inline;
+}
+
+.repetir-contraseña {
+  display: inline;
+}
+
+.opcionTarjetaDeCredito {
+  display: inline;
+}
+
+.numeroDeTarjeta {
+  display: inline;
+}
+
+.botones {
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+  display: flex;
+  flex-direction: row;
+}
+.botonGuardar,
+.botonCancelar,
+.botonCerrar {
+  text-decoration: none;
+  background-color: #1684a5;
+  padding: 0.8em;
+  border-radius: 1em;
+  margin: 0em 1em 0em 1em;
+  border: none;
+}
+
+.botonGuardar:hover,
+.botonCancelar:hover,
+.botonCerrar:hover {
+  background-color: #105f77fd;
+  cursor: pointer;
+}
+
+.nombre-de-usuario {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  padding-top: 0.7rem;
+}
+
+/* estilo para el error */
+
+.es-invisible {
+  display: none;
+}
+.es-visible {
+  border: 0.15em solid #a10000;
+}
+.p-nueva-contraseña,
+.p-repetir-contraseña,
+.p-metodos-pago,
+.p-numero-tarjeta,
+.p-clave-tarjeta,
+.p-cupon-pago {
+  border-width: 0;
+  border-radius: 1em;
+  background-color: #a1000034;
+  font-size: 0.8em;
+  padding: 0.8em;
+}
+
+footer {
+  background-color: #000000;
+  color: #cecece;
+  padding: 1em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+  }
+  svg {
+    width: 1em;
+  }
+  a {
+    text-decoration: none;
+    color: #cecece;
+  }
+  li {
+    display: flex;
+    gap: 0.5em;
+    align-items: flex-end;
+  }
+}
+.interno {
+  text-decoration: none;
+  color: #ffffff;
+}
+span {
+  font-weight: bold;
+}
+.copy {
+  margin: 0;
+  padding: 1em;
+  text-align: center;
+  font-size: small;
+  background-color: #000000;
+  color: #cecece;
+}
+#no-results {
+  display: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 640px) and (max-width: 900px) {
+  body {
+    font-size: 70%;
+  }
+  .lista-nav {
+    font-size: 140%;
+  }
+
+  .svgNav {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  body {
+    font-size: 70%;
+  }
+  .lista-nav {
+    font-size: 140%;
+  }
+  .svgNav {
+    display: none;
+  }
+
+  main {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  img {
+    width: 150px;
+  }
+
+  .nombre-de-usuario {
+    font-size: 1.5em;
+  }
+
+  .imagen-y-usuario {
+    flex-direction: column;
+    margin: auto;
+  }
+
+  .Formulario {
+    gap: 3em;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-form {
+    font-size: 1.6em;
+    gap: 1em;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .section-form2 {
+    font-size: 1.6em;
+    gap: 1em;
+    flex-direction: column;
+    align-items: start;
+  }
+}

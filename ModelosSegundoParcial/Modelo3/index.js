@@ -17,10 +17,6 @@ function validarProducto(evento) {
       insertarProducto.value + " ($" + insertarPrecio.value + ")";
     listaProductos.appendChild(nuevoProducto);
 
-    monto += parseFloat(insertarPrecio.value);
-    //importante el parsefloat, sino lo toma como un string
-    total.textContent = `TOTAL: ${monto}`;
-  }
   insertarProducto.value = "";
   insertarPrecio.value = "";
   //para borrar los inputs una vez insertado

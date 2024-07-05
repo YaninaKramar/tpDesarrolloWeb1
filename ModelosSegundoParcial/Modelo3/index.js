@@ -2,7 +2,7 @@ const agregar = document.querySelector(".boton-agregar");
 const insertarProducto = document.querySelector("#insertar-producto");
 const insertarPrecio = document.querySelector("#insertar-precio");
 const listaProductos = document.querySelector(".lista-productos");
-const total = document.querySelector(".monto-total");
+const total = document.querySelector(".monto-to1tal");
 let monto = 0;
 
 agregar.addEventListener("click", validarProducto);

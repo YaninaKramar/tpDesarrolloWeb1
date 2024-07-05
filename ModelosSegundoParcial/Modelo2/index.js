@@ -137,7 +137,6 @@ function funcionalidadInput() {
 
   mostrarPeliculas(peliculasFiltradas);
 }
-
 function mostrarPeliculas(peliculas) {
   seccionPelis.innerHTML = "";
   //para vaciar cada vez que se llame, sino sobreescribe
@@ -150,8 +149,6 @@ function mostrarPeliculas(peliculas) {
   //recorre el array que dispone de peliculas y crea un div por cada una,
   //le asigna nombre y año a cada una, y lo añade a la sección de las pelis
 }
-
 input.addEventListener("input", funcionalidadInput);
-
 mostrarPeliculas(PELICULAS);
 //para que muestre todas las pelis si no se inserta nada en el input

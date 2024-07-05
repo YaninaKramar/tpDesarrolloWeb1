@@ -3,6 +3,14 @@ const USUARIOS_REGISTRADOS = JSON.parse(JSON_USUARIOS_REGISTRADOS);
 
 const USUARIO_ACTUAL = localStorage.getItem("USUARIO ACTUAL");
 const EMAIL_ACTUAL = localStorage.getItem("EMAIL ACTUAL");
+const FORMA_PAGO_ACTUAL = localStorage.getItem("FORMA DE PAGO ACTUAL");
+let NUMERO_TARJETA_ACTUAL;
+let CUPON_PAGO_ACTUAL;
+if (FORMA_PAGO_ACTUAL === "creditCard") {
+  NUMERO_TARJETA_ACTUAL = localStorage.getItem("NUMERO TARJETA ACTUAL");
+} else if (FORMA_PAGO_ACTUAL === "cuponDePago") {
+  CUPON_PAGO_ACTUAL = localStorage.getItem("CUPON DE PAGO ACTUAL");
+}
 
 const EXPRESION_CONTRASEÑA =
   /^(?=(.*[A-Za-z]){2})(?=(.*\d){2})(?=(.*[^A-Za-z0-9]){2}).{8,}$/;
@@ -32,6 +40,44 @@ const nombreDeUsuario = document.querySelector(".nombre-de-usuario");
 nombreDeUsuario.textContent = USUARIO_ACTUAL;
 const email = document.querySelector(".email-del-usuario");
 email.textContent = EMAIL_ACTUAL;
+const tarjetaRegistrada = document.querySelector(".tarjeta-del-usuario");
+tarjetaRegistrada.textContent = NUMERO_TARJETA_ACTUAL;
+const textoTarjeta = document.querySelector(".h4-tarjeta");
+
+//seleccion de todos los inputs, para chequearlos después de su validación
+const metodoDePago_cuponDePago = document.querySelector(
+  'input[value="cuponDePago"]'
+);
+const metodoDePago_transferenciaBancaria = document.querySelector(
+  'input[value="transferenciaBancaria"]'
+);
+const cuponDePago_pagoFacil = document.querySelector(
+  'input[value="pagoFacil"]'
+);
+const cuponDePago_rapiPago = document.querySelector('input[value="rapipago"]');
+
+if (
+  FORMA_PAGO_ACTUAL === "pagoFacil" ||
+  FORMA_PAGO_ACTUAL === "rapipago" ||
+  FORMA_PAGO_ACTUAL === "cuponDePago"
+) {
+  metodoDePago_cuponDePago.checked = true;
+  if (FORMA_PAGO_ACTUAL === "pagoFacil" || CUPON_PAGO_ACTUAL === "pagoFacil") {
+    cuponDePago_pagoFacil.checked = true;
+  } else if (
+    FORMA_PAGO_ACTUAL === "rapipago" ||
+    CUPON_PAGO_ACTUAL === "rapipago"
+  ) {
+    cuponDePago_rapiPago.checked = true;
+  }
+} else if (
+  FORMA_PAGO_ACTUAL === "transferenciaBancaria" ||
+  FORMA_PAGO_ACTUAL === "bankTransfer"
+) {
+  metodoDePago_transferenciaBancaria.checked = true;
+} else if (FORMA_PAGO_ACTUAL === "creditCard") {
+  textoTarjeta.classList.remove("es-invisible");
+}
 
 document
   .querySelector(".botonGuardar")
@@ -54,7 +100,6 @@ document
     const seleccionarMetodoDePago = document.querySelector(
       'input[name="payMethod"]:checked'
     );
-
     const seleccionarCuponDePago = document.querySelector(
       'input[name="payMethod1"]:checked'
     );
@@ -116,10 +161,10 @@ document
 
       if (seleccionarMetodoDePago.value === "creditCard") {
         if (
-          !numeroDeTarjeta ||
-          numeroDeTarjeta.length < 16 ||
-          numeroDeTarjeta.length > 19 ||
-          !/^\d+$/.test(numeroDeTarjeta)
+          !numeroDeTarjeta.value ||
+          numeroDeTarjeta.value.length < 16 ||
+          numeroDeTarjeta.value.length > 19 ||
+          !/^\d+$/.test(numeroDeTarjeta.value)
         ) {
           errorNumeroTarjeta.classList.add("es-visible");
           errorNumeroTarjeta.classList.remove("es-invisible");
@@ -127,7 +172,7 @@ document
             MENSAJE_ERROR.numeroDeTarjeta.noValidoPorDigitos;
           numeroDeTarjeta.focus();
           ES_VALIDO_METODOS_PAGO = false;
-        } else if (!isValidCardNumber(numeroDeTarjeta)) {
+        } else if (!isValidCardNumber(numeroDeTarjeta.value)) {
           errorNumeroTarjeta.classList.add("es-visible");
           errorNumeroTarjeta.classList.remove("es-invisible");
           errorNumeroTarjeta.textContent =
@@ -189,6 +234,21 @@ document
               seleccionarMetodoDePago.value === "creditCard"
                 ? claveDeTarjeta.value
                 : null;
+            localStorage.setItem(
+              "FORMA DE PAGO ACTUAL",
+              seleccionarMetodoDePago.value
+            );
+            if (seleccionarMetodoDePago.value === "creditCard") {
+              localStorage.setItem(
+                "NUMERO TARJETA ACTUAL",
+                numeroDeTarjeta.value
+              );
+            } else if (seleccionarMetodoDePago.value === "cuponDePago") {
+              localStorage.setItem(
+                "CUPON DE PAGO ACTUAL",
+                seleccionarCuponDePago.value
+              );
+            }
           }
         }
       }

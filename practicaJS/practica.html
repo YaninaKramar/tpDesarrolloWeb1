@@ -9,12 +9,22 @@
     <h1>Titulo principal</h1>
     <p>Texto que va abajo</p>
     <form action="" method="post">
+      <label for="producto">Producto:</label>
       <input type="text" name="producto" id="producto" />
-      <label for="producto">Producto</label>
+      <label for="precio">Precio:</label>
       <input type="number" name="precio" id="precio" />
-      <label for="precio">Precio</label>
-      <button type="button">Agregar</button>
+
+      <button type="button">Agregar a la tabla</button>
     </form>
+    <div id="cantColumnas">
+      <form action="" method="get">
+        <input type="radio" name="una" id="una" />
+        <label for="una">Una columna</label>
+        <input type="radio" name="dos" id="dos" />
+        <label for="dos">Dos columnas</label>
+      </form>
+    </div>
     <div id="containerTablaDinamica"></div>
+    <script src="practica.js"></script>
   </body>
 </html>

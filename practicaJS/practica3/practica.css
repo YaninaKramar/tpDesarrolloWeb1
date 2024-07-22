@@ -1,0 +1,11 @@
+.peliculas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5em;
+    padding-top: 0.4em;
+    div {
+      text-align: center;
+      border: 0.15em solid rgb(109, 109, 109);
+      padding: 0.4em;
+    }
+  }

@@ -1,48 +1,52 @@
-body{
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    justify-content: center;
-    align-items: center;
+body {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  justify-content: center;
+  align-items: center;
 }
 
-.preguntas{
-    display: flex;
-    gap: 5em;
+.preguntas {
+  display: flex;
+  gap: 5em;
+}
+.preguntar1Columna {
+  display: block;
+  gap: 5em;
 }
 
-article{
-    display: flex;
-    gap: 1em;
+article {
+  display: flex;
+  gap: 1em;
 }
 
-.pregunta span{
-    display: block;
+.pregunta span {
+  display: block;
 }
 
-.opciones-columna{
-    display: flex;
-    flex-direction: column;
+.opciones-columna {
+  display: flex;
+  flex-direction: column;
 }
 
-.seccion-final{
-    display: flex;
-    justify-content: space-between;
+.seccion-final {
+  display: flex;
+  justify-content: space-between;
 }
 
-.nota{
-    display: flex;
-    flex-direction: column;
+.nota {
+  display: flex;
+  flex-direction: column;
 }
 
-h2{
-    display: inline;
+h2 {
+  display: inline;
 }
 
-header{
-    text-align: center;
+header {
+  text-align: center;
 }
 
-footer{
-    text-align: left;
+footer {
+  text-align: left;
 }

@@ -1,0 +1,24 @@
+.background {
+  background-color: pink;
+}
+.columna {
+  background-color: brown;
+  text-align: center;
+  gap: 1rem;
+}
+.unaColumna {
+  display: flex;
+  flex-direction: column;
+  background-color: aqua;
+  align-items: center;
+}
+
+.dosColumnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: blueviolet;
+}
+
+form {
+  text-align: center;
+}

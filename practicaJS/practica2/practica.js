@@ -6,7 +6,6 @@ const p = document.querySelector("p");
 console.log(p);
 p.classList.remove("background");
 
-
 const botonAgregar = document.getElementById("btn");
 console.log(botonAgregar);
 
@@ -23,6 +22,7 @@ const agregarItem = () => {
 
   monto += parseFloat(precio.value);
   const divItem = document.createElement("div");
+  divItem.classList.add("borde");
   divItem.innerHTML = `${producto.value} $${precio.value}`;
   divTabla.appendChild(divItem);
   producto.value = " ";

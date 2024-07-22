@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="practica.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="titulo">Titulo principal</h1>
+    <p class="background">Texto que va abajo</p>
+    <form action="" method="post">
+      <label for="producto">Producto:</label>
+      <input type="text" name="producto" id="producto" />
+      <label for="precio">Precio:</label>
+      <input type="number" name="precio" id="precio" />
+
+      <button id="btn" type="button">Agregar a la tabla</button>
+    </form>
+    <br>
+    <div id="cantColumnas">
+      <form action="" method="get">
+        <input type="radio" name="columnas" id="una" />
+        <label for="una">Una columna</label>
+        <input type="radio" name="columnas" id="dos" />
+        <label for="dos">Dos columnas</label>
+      </form>
+    </div>
+    <div class="columna" id="containerTablaDinamica"></div>
+    <div id="total"></div>
+    <script src="practica.js"></script>
+  </body>
+</html>

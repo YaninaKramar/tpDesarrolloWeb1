@@ -29,7 +29,6 @@ const agregarItem = () => {
   divTabla.appendChild(divItem);
   producto.value = " ";
   precio.value = " ";
-
   total.innerHTML = `Total: $${monto}`;
 };
 

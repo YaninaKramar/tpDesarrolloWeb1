@@ -1,0 +1,62 @@
+section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+  margin: 1em;
+}
+body {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.containerCambios {
+  border: 1px solid black;
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1em;
+  div {
+    padding: 1em;
+  }
+}
+footer {
+  text-align: center;
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+header {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+.contenido {
+  border: 1px solid black;
+  padding: 1rem;
+  h1 {
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+}
+.celeste {
+  background-color: blue;
+  color: white;
+}
+
+.violeta {
+  background-color: blueviolet;
+  color: white;
+}
+.naranja {
+  background-color: orange;
+  color: white;
+}
+
+button {
+  text-decoration: none;
+  background-color: white;
+  border-radius: 0;
+}

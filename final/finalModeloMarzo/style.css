@@ -1,12 +1,14 @@
 section {
   display: grid;
   grid-template-columns: 2fr 1fr;
-
   margin: 1em;
 }
 body {
   border: 1px solid black;
   border-collapse: collapse;
+}
+h1 {
+  padding-left: 1em;
 }
 .containerCambios {
   border: 1px solid black;

@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
@@ -17,18 +18,24 @@
         <form action="">
           <label for="nombre">Ingresa una universidad:</label>
           <select name="nombre" id="nombre">
-            <option value="INICIO">Seleccione una universidad</option>
-            <option value="UNLAM">UNLAM</option>
-            <option value="UAI">UAI</option>
-            <option value="UNSAM">UNSAM</option>
+            <option class="valorNombre" value="INICIO">
+              Seleccione una universidad
+            </option>
+            <option class="valorNombre" value="UNLAM">UNLAM</option>
+            <option class="valorNombre" value="UAI">UAI</option>
+            <option class="valorNombre" value="UNSAM">UNSAM</option>
           </select>
+          <br />
           <label for="color">Cambia el color de fondo:</label>
           <select name="color" id="color">
-            <option value="Inicial">Seleccione un color de fondo</option>
-            <option value="Rojo">Rojo</option>
-            <option value="Verde">Verde</option>
-            <option value="Azul">Azul</option>
+            <option class="valorColor" value="Inicial">
+              Seleccione un color de fondo
+            </option>
+            <option class="valorColor" value="Rojo">Rojo</option>
+            <option class="valorColor" value="Verde">Verde</option>
+            <option class="valorColor" value="Azul">Azul</option>
           </select>
+          <br />
           <input type="radio" name="colores" id="blanco" />
           <label for="blanco">Blanco</label>
           <input type="radio" name="colores" id="gris" />
@@ -41,5 +48,6 @@
     <footer>
       <p>Kramar Yanina</p>
     </footer>
+    <script src="index.js"></script>
   </body>
 </html>

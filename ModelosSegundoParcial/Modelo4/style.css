@@ -1,0 +1,50 @@
+body,
+section,
+article {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+article {
+  margin: 1rem;
+}
+footer {
+  text-align: center;
+}
+
+.modificarDatosAqui {
+}
+
+/*.universidad {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .textoUniversidad {
+    text-align: center;
+  }
+}*/
+
+.rojo {
+  background-color: red;
+}
+.verde {
+  background-color: green;
+}
+.azul {
+  background-color: blue;
+}
+
+.blanco {
+  color: white;
+}
+.gris {
+  color: gray;
+}
+.amarillo {
+  color: yellow;
+}

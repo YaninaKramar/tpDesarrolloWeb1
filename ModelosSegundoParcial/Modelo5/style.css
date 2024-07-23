@@ -36,3 +36,8 @@ article {
 .azul {
   background-color: blue;
 }
+#textoInputPais,
+#alineacion {
+  width: 100%;
+  box-sizing: border-box;
+}

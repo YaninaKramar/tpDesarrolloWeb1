@@ -31,3 +31,17 @@ azul.addEventListener("click", () => {
 });
 
 const alineacion = document.getElementById("alineacion");
+
+alineacion.addEventListener("change", function () {
+  console.log(alineacion.value);
+
+  if (alineacion.value === "Justificado") {
+    modificado.style.textAlign = "justify";
+  } else if (alineacion.value === "Centrado") {
+    modificado.style.textAlign = "center";
+  } else if (alineacion.value === "Izquierda") {
+    modificado.style.textAlign = "left";
+  } else if (alineacion.value === "Derecha") {
+    modificado.style.textAlign = "right";
+  }
+});

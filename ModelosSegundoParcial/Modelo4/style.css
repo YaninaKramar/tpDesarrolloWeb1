@@ -1,6 +1,5 @@
 body,
-section,
-article {
+section {
   border: 1px solid black;
   border-collapse: collapse;
 }
@@ -10,24 +9,39 @@ section {
 }
 article {
   margin: 1rem;
+  border: 1px solid black;
+  border-collapse: collapse;
 }
 footer {
   text-align: center;
 }
-
-.modificarDatosAqui {
+h1 {
+  padding-left: 0.5em;
 }
-
-/*.universidad {
+form {
+  width: 100%;
+}
+#modificarDatosAqui {
   display: flex;
-  flex-direction: column;
+  height: 12rem;
+  padding: 1em;
+}
+select {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+}
+#universidad {
+  display: flex;
   justify-content: center;
   align-items: center;
+  height: 8rem;
+}
 
-  .textoUniversidad {
-    text-align: center;
-  }
-}*/
+#cambiocolor {
+  display: inline-block;
+  padding-bottom: 1em;
+}
 
 .rojo {
   background-color: red;

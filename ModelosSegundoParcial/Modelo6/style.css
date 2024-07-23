@@ -32,3 +32,24 @@ section {
 #colorTexto {
   width: 100%;
 }
+
+.gris {
+  background-color: gray;
+}
+.celeste {
+  background-color: aqua;
+}
+.amarillo {
+  background-color: yellow;
+}
+
+.verde {
+  color: green;
+}
+
+.naranja {
+  color: orangered;
+}
+.rojo {
+  color: red;
+}

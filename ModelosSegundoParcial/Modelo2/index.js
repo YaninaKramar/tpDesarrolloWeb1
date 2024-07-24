@@ -125,30 +125,28 @@ const seccionPelis = document.querySelector(".peliculas");
 function funcionalidadInput() {
   const buscar = input.value.toLowerCase();
   //le da el valor que el usuario pone en el input y lo pone minúscula para comparar iguales
-  const peliculasFiltradas = PELICULAS.filter(function filtrarPeliculas(
-    pelicula
-  ) {
+  const peliculasFiltradas = PELICULAS.filter(function filtrarPeliculas(pelicula) {
     return pelicula.nombre.toLowerCase().includes(buscar);
   });
-  //el filter crea un array con los elementos que pasen la función específica
-  //el includes devuelve true o false si contiene el elemento
-  //a pelicula lo hace minúscula para comparar iguales
-  //lo returna para formar el array filtrado
-
+  //el filter crea un array con los elementos que pasen la función específica el includes devuelve true o false 
+  //si contiene el elemento a pelicula lo hace minúscula para comparar iguales lo returna para formar el array filtrado
   mostrarPeliculas(peliculasFiltradas);
 }
+
+
 function mostrarPeliculas(peliculas) {
   seccionPelis.innerHTML = "";
   //para vaciar cada vez que se llame, sino sobreescribe
-
   for (let i = 0; i < peliculas.length; i++) {
     let cadaPeli = document.createElement("div");
     cadaPeli.innerHTML = `${peliculas[i].nombre} (${peliculas[i].año})`;
     seccionPelis.appendChild(cadaPeli);
   }
-  //recorre el array que dispone de peliculas y crea un div por cada una,
+  //recorre el array que dispone de peliculas y crea un div por cada una, 
   //le asigna nombre y año a cada una, y lo añade a la sección de las pelis
 }
+
+
 input.addEventListener("input", funcionalidadInput);
 mostrarPeliculas(PELICULAS);
 //para que muestre todas las pelis si no se inserta nada en el input
